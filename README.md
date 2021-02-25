@@ -1,7 +1,7 @@
-# passport-twitch
-[![Code Climate](https://codeclimate.com/github/Schmoopiie/passport-twitch/badges/gpa.svg)](https://codeclimate.com/github/Schmoopiie/passport-twitch)
+# esm-passport-twitch
+[![Code Climate](https://codeclimate.com/github/frank-dspeed/esm-passport-twitch/badges/gpa.svg)](https://codeclimate.com/github/frank-dspeed/esm-passport-twitch)
 
-Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
+Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "esm-passport-twitch" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
 
 [Passport](http://passportjs.org/) strategies for authenticating with [Twitch](http://www.twitch.tv/)
 using OAuth 2.0.
@@ -14,7 +14,7 @@ unobtrusively integrated into any application or framework that supports
 
 ## Install
 ```bash
-$ npm install passport-twitch
+$ npm install esm-passport-twitch
 ```
 ## Usage of OAuth 2.0
 
@@ -51,19 +51,15 @@ authenticate requests.
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-```javascript
-app.get("/auth/twitch", passport.authenticate("twitch"));
-app.get("/auth/twitch/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-});
-```
-
 Optionally, the `forceVerify` option can be set to `true` to indicate
 that the user should be re-prompted for authorization:
 
 ```javascript
-app.get("/auth/twitch", passport.authenticate("twitch", {forceVerify: true}));
+app.get("/auth/twitch", passport.authenticate("twitch"/*,, {forceVerify: true} */));
+app.get("/auth/twitch/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+});
 ```
 
 ## Example
@@ -125,24 +121,4 @@ app.listen(3000);
 
 ## License
 
-The MIT License (MIT)
-
-Copyright (c) 2015 Schmoopiie
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+The Apache-2.0 License (Apache-2.0)
